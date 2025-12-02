@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Letter For You</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="container">
+      <div id="closed-letter" class="feature animate-fade-in">
+        <h2>You've Received a Letter!</h2>
+        <button id="open-letter-btn" class="animated-button">
+          Open the Letter
+        </button>
+      </div>
+
+      <div id="letter-content" class="scroll-hidden">
+        <h1>To Clarissa,</h1>
+        <p>
+          As your friend, I can't stand by and not do anything when anything
+          like this happens. I know that what has happened to you isn’t exactly
+          something that you wanted coming. But life just throws things at you
+          that you just don’t expect sometimes, you know.
+        </p>
+        <p>
+          What I can say is that, I’m sure you didn’t do anything wrong at all.
+          Like what I have always/will always tell you, don’t you ever be hard
+          on yourself for anything. You’re absolutely perfect the way you are
+          and no one should bring you down for anything. You’re one of the most
+          wonderful people I know in my life ca, and I’m sure a lot of people
+          think the same way too.
+        </p>
+        <p>
+          As someone that swore to be your friend, I will never hesitate to
+          listen to you about anything. I care about you a lot, you know, a lot
+          of people do. Just know that I’ll always be here for you and I’ll
+          always be on your side.
+        </p>
+        <p>
+          Right now, do what you have to do to be happy and keep up the good
+          work for NNU, okay? You’re gonna win and come out on top. I just know
+          that you will.
+        </p>
+        <p>
+          No matter the amount of heartaches and scars you have to endure, i
+          know definitely that our Clarissa will be dancing and shining like she
+          always does. This world’s all yours to take, show them what you’re
+          made of!!
+        </p>
+
+        <p style="text-align: right; margin-top: 10px">— Keefa Lasut</p>
+
+        <div id="gift-reveal-container">
+          <h3>There's one more thing...</h3>
+          <button id="gift-card-btn" class="animated-button">
+            Reveal Your Gift
+          </button>
+
+          <div id="gift-card-area" class="content-hidden">
+            <h3>A Small Gift and Promise:</h3>
+            <p style="text-align: center">
+              So through all of your troubles, I know it’s really not much but i
+              promise to get you a drink of your choice from one of these
+              places:
+              <br />
+              <span class="drink-options">Chatime | Sharetea | Kopken</span>
+            </p>
+
+            <p class="final-instruction">
+              <span class="italic-note">
+                (I know it’s really not a lot, but it’s something I wanna give
+                to you just because why not and it’s the least I can do to show
+                you i'm here for you)
+              </span>
+              <br />
+              <span class="redeem-prompt">
+                Just ask me whenever you want to redeem your favorite drink!
+              </span>
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <div id="volume-control">
+          <label for="volume-slider" style="color: var(--light-gold)"
+            >Volume:</label
+          >
+          <input
+            type="range"
+            id="volume-slider"
+            min="0"
+            max="1"
+            step="0.1"
+            value="0.8"
+          />
+        </div>
+      </div>
+    </div>
+    <audio
+      id="chiquitita-audio"
+      src="ABBA - Chiquitita (Official Music Video).mp3"
+      preload="auto"
+    ></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>

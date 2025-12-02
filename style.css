@@ -1,0 +1,314 @@
+/* ------------------------------------ */
+/* Global Styles and Variables */
+/* ------------------------------------ */
+:root {
+  --color-navy: #0a1931; /* Deep, elegant navy blue */
+  --color-dark-gold: #c2a26f; /* Muted, rich gold */
+  --color-light-gold: #e6d2b3; /* Lighter gold for text/accents */
+  --color-off-white: #fff7ed; /* Warmer Creamy White for letter background */
+  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-button-hover: #d5b887;
+  --font-primary: "Montserrat", sans-serif;
+  --font-display: "Playfair Display", serif;
+}
+
+/* Base Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  color: var(
+    --color-light-gold
+  ); /* Default text color (used for unopened state) */
+  background: var(--color-navy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ------------------------------------ */
+/* Container & Main Letter Structure */
+/* ------------------------------------ */
+#container {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--color-navy);
+  box-shadow: 0 10px 30px var(--color-shadow);
+  border-radius: 12px;
+  border: 3px solid var(--color-dark-gold); /* Gold frame */
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Closed Letter State */
+#closed-letter {
+  text-align: center;
+  padding: 50px 20px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Added transition for smoother hiding */
+  transition: opacity 0.5s ease, max-height 0.5s ease, padding 0.5s ease;
+}
+
+#closed-letter h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--color-dark-gold);
+  margin-bottom: 25px;
+}
+
+/* Utility class to hide the closed letter state */
+#closed-letter.hide-closed {
+  opacity: 0;
+  max-height: 0;
+  padding: 0 20px;
+}
+
+/* ------------------------------------ */
+/* Letter Content Styles */
+/* ------------------------------------ */
+#letter-content {
+  /* IMPROVED: Smoother transitions */
+  background-color: var(--color-off-white);
+  /* Text color for the opened letter is dark navy, ensuring high contrast */
+  color: var(--color-navy);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  line-height: 1.7;
+  /* Combined transition for smoothness: 1.5s duration for a slow, cinematic fade-in */
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* Hiding state (used before opening) */
+#letter-content.scroll-hidden {
+  display: none; /* Initial hidden state */
+  opacity: 0;
+}
+
+/* Visible state (after opening) */
+#letter-content.scroll-visible {
+  display: block;
+  opacity: 1;
+}
+
+#letter-content h1 {
+  font-family: var(--font-display);
+  color: var(--color-dark-gold);
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--color-light-gold);
+  padding-bottom: 10px;
+}
+
+#letter-content p {
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+/* Strong emphasis within the letter */
+#letter-content strong {
+  color: var(--color-dark-gold);
+  font-weight: 700;
+}
+
+/* --- Signature Styling --- */
+/* Target the specific paragraph containing the signature */
+#letter-content p[style*="text-align: right; margin-top: 10px"] {
+  font-family: var(--font-display);
+  font-size: 1.3rem; /* Make the signature slightly larger */
+  color: var(--color-dark-gold); /* Style it in gold */
+  margin-top: 30px !important; /* Increase margin for separation, overriding inline style */
+  margin-bottom: 5px; /* Reduce bottom margin */
+}
+
+/* ------------------------------------ */
+/* Buttons & Interactive Elements */
+/* ------------------------------------ */
+.animated-button {
+  background-color: var(--color-dark-gold);
+  color: var(--color-navy);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.animated-button:hover {
+  background-color: var(--color-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.animated-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Gift Reveal Section */
+#gift-reveal-container {
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid var(--color-light-gold);
+  border-radius: 8px;
+  text-align: center;
+  background-color: rgba(194, 162, 111, 0.1); /* Subtle gold tint */
+}
+
+#gift-reveal-container h3 {
+  font-family: var(--font-display);
+  color: var(--color-dark-gold);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+#gift-card-area.content-hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+  padding-top: 0;
+}
+
+#gift-card-area.content-visible {
+  max-height: 500px; /* Sufficiently large value */
+  opacity: 1;
+  padding-top: 20px;
+  transition: max-height 0.8s ease-in, opacity 0.8s ease-in;
+}
+
+.drink-options {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-dark-gold); /* Highlight the options */
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.italic-note {
+  font-style: italic;
+  color: var(--color-navy);
+}
+
+.redeem-prompt {
+  font-weight: 700;
+  display: block;
+  margin-top: 5px;
+  color: var(--color-dark-gold);
+}
+
+/* Horizontal Rule */
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(10, 25, 49, 0),
+    var(--color-dark-gold),
+    rgba(10, 25, 49, 0)
+  );
+  margin: 30px 0;
+}
+
+/* Volume Control */
+#volume-control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+#volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 8px;
+  background: var(--color-light-gold);
+  border-radius: 4px;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+#volume-slider:hover {
+  opacity: 1;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--color-dark-gold);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------ */
+/* Animations & Utility Classes */
+/* ------------------------------------ */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #container {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh; /* Full height on small screens */
+  }
+
+  #closed-letter {
+    padding: 100px 20px;
+  }
+
+  #letter-content {
+    padding: 20px;
+  }
+
+  #letter-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .animated-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  #volume-control {
+    justify-content: center;
+  }
+}
+
+#letter-content p[style*="text-align: right; margin-top: 10px"] {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-dark-gold);
+  margin-top: 30px !important;
+  margin-bottom: 5px;
+}
